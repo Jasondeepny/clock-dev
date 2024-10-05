@@ -13,6 +13,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Set up Node.js (optional, if you need to build your site)
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # 根据需要选择 Node.js 版本
+
+      - name: Install dependencies (optional, if you need to build your site)
+        run: |
+          npm install  # 如果你使用 npm 管理依赖
+
+      - name: Build the site (optional, if you need to build your site)
+        run: |
+          npm run build  # 根据你的构建命令进行调整
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
